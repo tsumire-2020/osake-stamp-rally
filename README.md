@@ -35,7 +35,20 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
+## コマンド
 
+uvicorn app.main:app --reload
+
+python -m venv venv
+
+
+### migration
+
+alembic init db
+alembic revision --autogenerate
+alembic upgrade head
+
+memo
 yamadaUI
 基本的にApprouterの書き方
 providerに使いたいGrobalStateを全部入れる　←CONTEXTAPIを使用してグローバル#osake-stamp-rally
