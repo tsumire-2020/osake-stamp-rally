@@ -1,22 +1,26 @@
 "use client"
+import { Stamp, fetchStamps } from '@/libs/fetcher/stampsFecher';
 import { SimpleGrid } from '@yamada-ui/react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function StampRally() {
-  const [stamps, Setstamps] = useState(Array(9).fill(false));
-  const handleClick = async (index: number) => {
-    const newStamps = stamps.map((stamp, i) => {
-      if (i === index)return !stamp;
-      return stamp;
-    });
+  const [stamps, setStamps] = useState<Stamp[]>([]);
 
-    Setstamps(newStamps);
-  }
+
+  useEffect(() => {
+    // Todo fetch
+    const init = async () => {
+      const newStamps = await fetchStamps()
+      setStamps(newStamps);
+    }
+
+    init();
+  }, []);
   return (
     <div>
       <SimpleGrid columns={3}>
         {stamps.map((stamp, index) => {
-            return <div key={index} onClick={() => handleClick(index)}>{stamp ? "〇" : "×"}</div>;
+            return <div key={index}>{stamp ? "〇" : "×"}</div>;
         })}
       </SimpleGrid>
       StampRally</div>
