@@ -1,5 +1,5 @@
 import { BearCounter } from "@/components/BareCounter";
-import { CreateStamprally } from "@/components/CreateStampRally";
+import { CreateStampRally } from "@/components/CreateStampRally";
 import { Button } from "@yamada-ui/react";
 import Image from "next/image";
 import Link from "next/link";

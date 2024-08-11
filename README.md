@@ -41,7 +41,12 @@ uvicorn app.main:app --reload
 
 python -m venv venv
 
+use系　On始まりのハンドラーはサーバーコンポーネント上では使えない
+→サーバーコンポーネントの中に"use client"を作成してコンポーネントを入れるイメージ
 
+
+キャッシュ系が怪しいとき
+.nextの中身を消す
 ### migration
 
 alembic init db

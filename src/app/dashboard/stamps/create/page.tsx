@@ -1,29 +1,11 @@
 import React from 'react'
-import { createStampRallyAction } from './actions';
-import { Button, Input, Textarea } from '@yamada-ui/react';
+import { CreateStampralluFrom } from './_component/CreateStampralluFrom';
+import { fetchAlcoholList } from '@/libs/fetcher/alcoholFetcher';
 
-export const CreatePage = () => {
-  return (
-    <form action={createStampRallyAction}>
-    <div>
-      <div>Createpage</div>
-      <div>
-        <div>Title</div>
-        <Input name="title"/>
-      </div>
-      <div>
-        <div>説明</div>
-        <Textarea name="description"/>
-      </div>
-      <div>
-        <div>お酒一覧</div>
-      </div>
-      <div>
-        <div>asd</div>
-      </div>
-    </div>
-    <Button type='submit'>作成</Button>
-    </form>
+export const CreatePage =async () => {
+  const alcoholList= await fetchAlcoholList();
+  return(
+    <CreateStampralluFrom alcoholList={alcoholList}/>
   )
 }
 export default CreatePage;

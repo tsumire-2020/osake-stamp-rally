@@ -6,7 +6,7 @@ import Link from "next/link";
 
 
 
-export const CreateStamprally = () => {
+export const CreateStampRally = () => {
   return (
     <Link href="/dashboard/stamps/create">
   <Button>
