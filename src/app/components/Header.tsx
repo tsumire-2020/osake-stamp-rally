@@ -7,7 +7,9 @@ export const Header = () => {
     <div className="flex flex-row justify-between items-center container mx-auto">
       <div>お酒スタンプラリー</div>
 
-      <div>
+      <div className='flex flex-row items-center gap-3' >
+        <Link href="/login">ログイン画面</Link>
+        <Link href="/register">登録</Link>
         <Link href="/dashboard">ダッシュボード画面</Link>
       </div>
     </div>
