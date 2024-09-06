@@ -5,7 +5,20 @@ export interface Stamp {
   title: string;
 }
 
-export const fetchStampRallyById = async (id: string) => {
+type fetchStampRallyByIdType = (id: string) => Promise<{
+  id: string;
+  title: string;
+  description: string
+  stamps: {
+    id:string;
+    alcohol: {
+      id:string;
+      name:string;
+    }
+  }[]
+}>
+
+export const fetchStampRallyById: fetchStampRallyByIdType = async (id: string) => {
   const responce = await fetch(getApiUrl(`/stamprallies/${id}`));
   return await responce.json();
 }
@@ -22,15 +35,13 @@ export const fetcherStamprallies: () =>Promise<StampRally[]> = async () => {
   return json
 }
 
-export const fetchCreateStampRally = async (StampRally: any) => {
+export const fetchCreateStampRally = async (stampRally: any) => {
   const responce = await fetch(getApiUrl("/stamprallies"),{
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify({
-      StampRally
-    })
+    body: JSON.stringify(stampRally)
   }
   )
   return await responce.json();

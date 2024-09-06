@@ -6,12 +6,8 @@ import { useFormState, useFormStatus } from 'react-dom';
 import { createStampRallyAction } from '../actions';
 import { Alcohol } from '@/types';
 
-interface Props {
-  alcoholList: Alcohol[]
-}
 
-export const CreateStampralluFrom : FunctionComponent<Props> = ({
-  alcoholList
+export const CreateStampralluFrom= ({
 }) => {
   const [state,action] = useFormState(createStampRallyAction, {});
   const {pending} = useFormStatus();
@@ -28,12 +24,6 @@ export const CreateStampralluFrom : FunctionComponent<Props> = ({
         <Textarea name="description"/>
       </div>
       <div>
-        <div>お酒一覧</div>
-        <div>
-          {alcoholList?.map((alcohol) => (
-            <div key={alcohol.id}>{alcohol.name}</div>
-          ))}
-        </div>
       </div>
       <div>
         <div>asd</div>

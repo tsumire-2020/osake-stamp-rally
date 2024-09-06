@@ -2,6 +2,7 @@
 import { fetchStampRallyById } from '@/libs/fetcher/stampsFecher';
 import { NextPage } from 'next';
 import React from 'react'
+import { StampRallySection } from './components/StampRallySection';
 
 interface Props {
   params: {
@@ -16,16 +17,7 @@ const Page: NextPage<Props> = async ({
   const stampRally = await fetchStampRallyById(id);
   console.log(stampRally)
   return (
-    <div>
-      <div>{stampRally.title}</div>
-      <div>{stampRally.description}</div>
-
-      <div>Todo:スタンプ一覧</div>
-      <div>
-        <div>Todo: 参加機能</div>
-        <div>Todo: コメント</div>
-      </div>
-    </div>
+    <StampRallySection id={id}/>
   )
 }
 

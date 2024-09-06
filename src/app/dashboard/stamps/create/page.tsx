@@ -5,7 +5,7 @@ import { fetchAlcoholList } from '@/libs/fetcher/alcoholFetcher';
 export const CreatePage =async () => {
   const alcoholList= await fetchAlcoholList();
   return(
-    <CreateStampralluFrom alcoholList={alcoholList}/>
+    <CreateStampralluFrom/>
   )
 }
 export default CreatePage;

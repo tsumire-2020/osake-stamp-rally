@@ -14,10 +14,12 @@ export const createStampRallyAction = async (
     title:formData.get("title"),
     description: formData.get("description",)
   } //zod でバリデーション処理をする
+  console.log("newstamp"+JSON.stringify(StampRally))
 
   const newStampRally = await fetchCreateStampRally(StampRally);
-
+  console.log("newstamp"+JSON.stringify(newStampRally))
+  const {id} = newStampRally
   revalidatePath("/") //更新処理の際に画面（キャッシュ）を更新する
+  redirect(`/stamp-rally/${id}`)
   // redirect("/dashboard")
-  return{}
 }
